@@ -1,6 +1,6 @@
 ![ResumeGEN](https://raw.githubusercontent.com/sayedanowar/ResumeGEN/main/img/GitHub%20Repository%20Image.png)
 
-# Django Resume Generator
+# ResumeGEN
 
 This is a Django project for creating and managing resumes. Users can sign up, fill in their details, and generate a professional resume in PDF format.
 
