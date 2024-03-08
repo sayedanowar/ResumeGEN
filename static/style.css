@@ -9,12 +9,14 @@
     text-decoration: none;
     list-style: none;
     font-family: "Inter", sans-serif;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
     font-family: "Inter", sans-serif;
     color: #FFFFFF;
     background-color: #131214;
+    -webkit-tap-highlight-color: transparent;
 }
 
 textarea {
