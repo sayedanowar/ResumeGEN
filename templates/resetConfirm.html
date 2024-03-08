@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="shortcut icon" href="/static/favicon/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/static/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/static/favicon/manifest.json">
+    <meta name="keywords" content="ResumeGEN">
+    <meta name="description"
+        content="A free and open-source resume builder that simplifies the process of creating and updating your resume.">
+    <meta name="theme-color" content="#131214">
+    <title>Reset Confirm - ResumeGEN</title>
+</head>
+
+<body>
+    <div class="form_container">
+        {% if validlink %}
+        <h2 class="form_logo">Change Password</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="password_reset">
+                {{form.as_p}}
+            </div>
+            <div class="show_password_div">
+                <button class="show_passwd_btn" id="showPsswd" type="button">
+                    <i class="uil uil-eye eye_icons"></i>
+                </button>
+                <label>Show Password</label>
+            </div>
+            <button type="submit" class="btn">Set New Password</button>
+        </form>
+        {% else %}
+        <p class="note_text">
+            The password reset link you are trying to use is invalid or has expired. Please request a new password reset
+            link.
+        </p>
+        {% endif %}
+    </div>
+    <script src="/static/reset.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,901 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    text-decoration: none;
+    list-style: none;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    color: #FFFFFF;
+    background-color: #131214;
+}
+
+textarea {
+    resize: none;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #131214;
+    padding: 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.navbar .logo {
+    color: #FFFFFF;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.navbar_toggle {
+    color: #FFFFFF;
+    cursor: pointer;
+    display: none;
+    font-size: 1.5rem;
+}
+
+.nav_links_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav_links {
+    color: #FFFFFF;
+    padding: 0 1rem;
+    transition: .3s;
+}
+
+.nav_links:hover {
+    color: #4080FF;
+}
+
+.nav_links.active {
+    color: #4080FF;
+}
+
+/* Index Page CSS */
+
+.home_container {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 5rem auto;
+}
+
+.text_div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 7rem;
+}
+
+.text_div .home_tag {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-bottom: 1rem;
+    font-family: "IBM Plex Sans", sans-serif;
+}
+
+.text_div .home_text {
+    font-size: 3.75rem;
+    line-height: 5rem;
+    margin-bottom: 2rem;
+    font-family: "IBM Plex Sans", sans-serif;
+}
+
+.text_div .home_para {
+    font-size: 1.125rem;
+    line-height: 2;
+    margin-bottom: 4rem;
+    font-family: "IBM Plex Sans", sans-serif;
+}
+
+.home_links .get_started {
+    padding: 0.75rem;
+    color: #000000;
+    background-color: #FFFFFF;
+    font-weight: 500;
+    margin-right: 1rem;
+    border-radius: 0.125rem;
+    font-family: "IBM Plex Sans", sans-serif;
+    transition: 0.2s;
+}
+
+.home_links .get_started:hover {
+    color: #FFFFFF;
+    background-color: #1D1C1F;
+}
+
+.home_links .source_code i {
+    margin-right: 0.25rem;
+}
+
+.home_links .source_code {
+    color: #FFFFFF;
+    font-family: "IBM Plex Sans", sans-serif;
+}
+
+.image_div img {
+    max-width: 100%;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.features_div {
+    background-color: #1D1C1F;
+}
+
+.features_div .f_title_tagline {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.features_div .features_title {
+    font-size: 2.25rem;
+    line-height: 3rem;
+    margin-top: 7rem;
+    padding-top: 5rem;
+    font-family: "IBM Plex Sans", sans-serif;
+}
+
+.features_div .features_tagline {
+    line-height: 1.5rem;
+    margin-top: 2rem;
+    font-family: "IBM Plex Sans", sans-serif;
+}
+
+.features_div .features_box {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    padding-bottom: 5rem;
+}
+
+.features_div .features_box .f_box {
+    font-size: 0.875rem;
+    display: flex;
+    padding: 0.75rem;
+    margin-top: 3rem;
+    margin-right: 1rem;
+    background-color: #131214;
+    border-radius: 0.25rem;
+    transition: 0.3s;
+}
+
+.features_div .features_box .f_box:hover {
+    color: #131214;
+    background-color: #FFFFFF;
+}
+
+.features_div .features_box .f_box i {
+    margin-right: 0.5rem;
+}
+
+.features_div .features_box .f_box .f_text {
+    font-family: "IBM Plex Sans", sans-serif;
+}
+
+.copyright {
+    text-align: center;
+    margin-bottom: 2rem;
+    line-height: 1.25rem;
+    font-family: "IBM Plex Sans", sans-serif;
+}
+
+.copyright a {
+    color: #4080FF;
+    font-family: "IBM Plex Sans", sans-serif;
+}
+
+/* Log In And Sign Up Form CSS */
+
+.form_container {
+    max-width: 425px;
+    margin: 5rem auto;
+    padding: 1rem;
+}
+
+.form_logo {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+}
+
+.input_group {
+    padding: 1rem;
+    margin-bottom: 1.25rem;
+    background-color: #1D1C1F;
+    border-radius: .5rem;
+}
+
+.input_group .form-control {
+    width: 100%;
+    font-size: 1rem;
+    border: none;
+    background-color: #1D1C1F;
+    color: #FFFFFF;
+}
+
+.input_group .small {
+    text-transform: capitalize;
+    color: #FF6969;
+}
+
+.form_container .note_text {
+    text-align: center;
+    margin-bottom: 2rem;
+    line-height: 1.5rem;
+}
+
+.password_reset {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: #1D1C1F;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+}
+
+.password_reset li {
+    display: none;
+}
+
+.password_reset input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 1rem;
+    margin-top: 1rem;
+    background-color: #1D1C1F;
+    color: #FFFFFF;
+    margin-bottom: 1rem;
+}
+
+.show_password_div {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.show_passwd_btn {
+    border: none;
+    outline: none;
+    color: #FFFFFF;
+    background-color: #131214;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.show_passwd_btn .eye_icons {
+    font-size: 1.5rem;
+}
+
+.btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    background-color: #FFFFFF;
+    color: #131214;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn:hover {
+    color: #FFFFFF;
+    background-color: #1D1C1F;
+}
+
+.form_container .github_login {
+    margin-top: 1.25rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.form_container .github_login a {
+    text-align: center;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: #1D1C1F;
+    color: #FFFFFF;
+    transition: 0.3s;
+}
+
+.form_container .github_login a:hover {
+    background-color: #FFFFFF;
+    color: #131214;
+    font-weight: 500;
+}
+
+.form_container .github_login a i {
+    margin-right: 0.5rem;
+}
+
+.alert_error {
+    text-align: center;
+    margin-top: 2rem;
+    text-transform: capitalize;
+    line-height: 1.5rem;
+    color: #FF6969;
+    font-size: .875rem;
+}
+
+.form_container .form_redirect {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.form_container .form_redirect a {
+    color: #4080FF;
+}
+
+.form_container .form_redirect .forgot_password {
+    color: #FFFFFF;
+}
+
+.form_container .form_redirect .forgot_password:hover {
+    text-decoration: underline;
+}
+
+/* Dashboard Input CSS */
+
+.dashboard_container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.sec_title {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.form_group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.input_label {
+    margin-bottom: .625rem;
+    font-size: 1rem;
+}
+
+.input_field {
+    font-size: 1rem;
+    border: 0;
+    outline: 0;
+    padding: .875rem;
+    border-radius: .5rem;
+    background-color: #1D1C1F;
+    color: #FFFFFF;
+}
+
+.input_group_div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input_group_div .flex_input {
+    width: 49%;
+}
+
+.form_group .last_input {
+    margin-bottom: 2rem;
+}
+
+.dash_save_btn {
+    margin-bottom: 3rem;
+}
+
+/* Preview Page CSS */
+
+.download_btn_div {
+    max-width: 222mm;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.download_btn_div .warning_note {
+    display: none;
+}
+
+.resume_page_div {
+    margin: 3rem auto;
+    background-color: #FFFFFF;
+    overflow: scroll;
+    padding: 1.5rem;
+    max-width: 210mm;
+    border-radius: .25rem;
+    transition: .3s;
+    cursor: zoom-in;
+}
+
+.resume_page_div:hover {
+    transform: scale(1.2);
+}
+
+.resume_page_div::-webkit-scrollbar {
+    display: none;
+}
+
+.resume {
+    width: 210mm;
+    height: 297mm;
+    background-color: #FFFFFF;
+    margin: 0 auto;
+    color: #000000;
+}
+
+.fullname {
+    font-size: 16pt;
+    line-height: 1;
+    font-weight: 700;
+    color: #000000;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.jobTitle {
+    font-size: 12pt;
+    font-weight: 400;
+    color: #000000;
+    margin-top: 8pt;
+    line-height: 1;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.contact_details_div {
+    font-size: 10pt;
+    line-height: 1;
+    color: #000000;
+    margin-top: 8pt;
+}
+
+.contact_details {
+    margin-left: 4pt;
+    margin-right: 4pt;
+    font-weight: 500;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.location {
+    margin-left: 0;
+}
+
+.contact_details i {
+    color: #2563EB;
+}
+
+.contact_details a {
+    color: #000000;
+    line-height: 1;
+    font-weight: 500;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.section {
+    margin-top: 16pt;
+}
+
+.title_h5 {
+    font-size: 10pt;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 6pt;
+    color: #000000;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    background: transparent;
+    border: none;
+    border-top: 1px solid #000000;
+}
+
+.profiles_div {
+    font-size: 10pt;
+    line-height: 1;
+    color: #000000;
+    margin-top: 8pt;
+    display: flex;
+    justify-content: space-between;
+}
+
+.profiles_link {
+    display: flex;
+    align-items: center;
+}
+
+.profiles_link a {
+    color: #000000;
+    line-height: 1;
+    font-weight: 500;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.profiles_link i {
+    font-size: 14pt;
+    margin-right: 4pt;
+}
+
+.facebook {
+    margin-left: 0;
+}
+
+.facebook i {
+    font-size: 12pt;
+    color: #0866FF;
+}
+
+.instagram i {
+    color: #FF276C;
+}
+
+.twitter i {
+    color: #0099FF;
+}
+
+.linkedIn i {
+    color: #0080FF;
+}
+
+.summary_div {
+    font-size: 10pt;
+    color: #000000;
+    margin-top: 8pt;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.summary {
+    font-weight: 600;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.education_div {
+    font-size: 10pt;
+    line-height: 1;
+    color: #000000;
+    margin-top: 8pt;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.edu_name_year {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.edu_margin_top_class {
+    margin-top: 14pt;
+}
+
+.edu_name_year .eduName {
+    font-weight: 700;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.edu_name_year .eduYear {
+    font-weight: 700;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.edu_loc_type {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 6pt;
+}
+
+.edu_loc_type .eduLoc {
+    font-size: 10pt;
+    font-weight: 500;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.edu_loc_type .eduLoc span {
+    color: #999999;
+}
+
+.edu_loc_type .eduType {
+    font-size: 10pt;
+    font-weight: 500;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.skill_set_div1 {
+    font-size: 10pt;
+    line-height: 1;
+    color: #000000;
+    margin-top: 8pt;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.skill_name_desc .skill_name {
+    font-weight: 700;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.skill_name_desc .skill_desc {
+    font-size: 10pt;
+    font-weight: 500;
+    margin-top: 6pt;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.proj_name_date {
+    font-size: 10pt;
+    line-height: 1;
+    color: #000000;
+    margin-top: 8pt;
+    margin-bottom: 2pt;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.proj_margin_top_class {
+    margin-top: 16pt;
+}
+
+.proj_name_date .project,
+.proj_name_date .projectDate {
+    font-weight: 700;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.projectLink {
+    font-size: 10pt;
+    font-weight: 500;
+    color: #000000;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.projectLink i {
+    color: #2563EB;
+}
+
+.projectDesc {
+    font-size: 10pt;
+    color: #000000;
+    line-height: 1;
+}
+
+.bulletpoint {
+    margin-top: 8pt;
+    font-weight: 500;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.bulletpoint span {
+    color: #B3B3B3;
+}
+
+.certificates {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cert_div {
+    width: 48%;
+    font-size: 10pt;
+    line-height: 1;
+    margin-top: 8pt;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: #000000;
+}
+
+.cert_name_issuer .certName {
+    color: #000000;
+    font-weight: 700;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.cert_name_issuer .certIssuer {
+    margin-top: 6pt;
+    font-weight: 500;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.cert_div .certYear {
+    font-weight: 700;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.languages {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.lang_name_desc {
+    font-size: 10pt;
+    line-height: 1;
+    margin-top: 8pt;
+    color: #000000;
+}
+
+.lang_name_desc .lang {
+    font-weight: 700;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.lang_name_desc .langDesc {
+    margin-top: 6pt;
+    font-weight: 500;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.interests_div {
+    font-size: 10pt;
+    line-height: 1;
+    color: #000000;
+    margin-top: 8pt;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.interests_div .interests {
+    font-weight: 700;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: .625rem;
+}
+
+::-webkit-scrollbar-track {
+    background: #131214;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #FFFFFF;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #808080;
+}
+
+@media (max-width: 1440px) {
+
+    .home_container {
+        width: 90%;
+    }
+
+    .features_div .f_title_tagline {
+        width: 90%;
+    }
+
+    .features_div .features_box {
+        width: 90%;
+    }
+
+}
+
+@media (max-width: 1024px) {
+
+    .text_div {
+        align-items: flex-start;
+        margin-bottom: 5rem;
+        text-align: left;
+    }
+
+    .text_div .home_text {
+        font-size: 3rem;
+        line-height: 4rem;
+    }
+
+    .features_div .f_title_tagline {
+        text-align: left;
+    }
+
+    .features_div .features_box {
+        justify-content: flex-start;
+    }
+
+    .download_btn_div .warning_note {
+        display: block;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        margin-top: 2rem;
+        text-align: center;
+        line-height: 1.125rem;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .navbar_toggle {
+        display: block;
+    }
+
+    .nav_links_div {
+        display: none;
+        width: 100%;
+        text-align: right;
+        background-color: #1D1C1F;
+        position: absolute;
+        top: 4.375rem;
+        left: 0;
+        z-index: 1;
+    }
+
+    .nav_links_div li {
+        width: 100%;
+        margin: 1.5rem 1rem;
+    }
+
+    .nav_links_div a {
+        padding: 0 2.25rem;
+    }
+
+    .nav_active {
+        display: block;
+    }
+
+    .features_div .features_box {
+        flex-direction: column;
+    }
+
+    .features_div .features_box .f_box {
+        margin-top: 1.5rem;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .text_div .home_text {
+        font-size: 2.25rem;
+        line-height: 3rem;
+    }
+
+    .sec_title {
+        font-size: 1.5rem;
+    }
+
+    .input_group_div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .input_group_div .flex_input {
+        width: 100%;
+    }
+
+    .resume_page_div:hover {
+        transform: none;
+    }
+
+}

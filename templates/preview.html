@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="shortcut icon" href="/static/favicon/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/static/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/static/favicon/manifest.json">
+    <meta name="keywords" content="ResumeGEN">
+    <meta name="description"
+        content="A free and open-source resume builder that simplifies the process of creating and updating your resume.">
+    <meta name="theme-color" content="#131214">
+    <title>ResumeGEN</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="/" class="logo">ResumeGEN</a>
+        <span class="navbar_toggle" id="js-navbar-toggle">
+            <i class="uil uil-apps"></i>
+        </span>
+        <ul class="nav_links_div" id="js-menu">
+            {% if request.user.is_authenticated %}
+            <li><a href="{% url 'dashboard' %}" class="nav_links">Dashboard</a></li>
+            <li><a href="{% url 'preview' %}" class="nav_links active">Preview</a></li>
+            <li><a href="{% url 'logout' %}" class="nav_links">Log Out</a></li>
+            {% else %}
+            <li><a href="/" class="nav_links">Home</a></li>
+            <li><a href="{% url 'login' %}" class="nav_links">Log In</a></li>
+            <li><a href="{% url 'signup' %}" class="nav_links">Sign Up</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <div class="download_btn_div">
+        <button class="btn" onclick="PrintResume()">Download PDF</button>
+        <p class="warning_note">
+            Note : Please download your resume from a desktop or laptop computer.
+        </p>
+    </div>
+    <div class="resume_page_div">
+        <div class="resume" id="resume">
+            <div class="basic_sec">
+                <h1 class="fullname">{{data.fullname}}</h1>
+                <h3 class="jobTitle">{{data.jobTitle}}</h3>
+                <div class="contact_details_div">
+                    <span class="contact_details location">
+                        <i class="uil uil-map-marker"></i> {{data.location}}
+                    </span>|
+                    <span class="contact_details ph">
+                        <i class="uil uil-phone"></i> <a href="tel:{{data.ph}}">{{data.ph}}</a>
+                    </span>|
+                    <span class="contact_details email">
+                        <i class="uil uil-at"></i> <a href="mailto:{{data.email}}">{{data.email}}</a>
+                    </span>|
+                    <span class="contact_details portfolio">
+                        <i class="uil uil-link"></i> <a href="{{data.portfolio}}">{{data.siteLabel}}</a>
+                    </span>
+                </div>
+            </div>
+            <div class="section profile_sec">
+                <h5 class="title_h5">Profiles</h5>
+                <hr>
+                <div class="profiles_div">
+                    <span class="profiles_link facebook">
+                        <i class="fa-brands fa-facebook"></i> <a href="{{data.facebook}}">{{data.fb_uname}}</a>
+                    </span>
+                    <span class="profiles_link instagram">
+                        <i class="uil uil-instagram"></i> <a href="{{data.instagram}}">{{data.ig_uname}}</a>
+                    </span>
+                    <span class="profiles_link twitter">
+                        <i class="uil uil-twitter"></i> <a href="{{data.twitter}}">{{data.tw_uname}}</a>
+                    </span>
+                    <span class="profiles_link gitHub">
+                        <i class="uil uil-github"></i> <a href="{{data.gitHub}}">{{data.gh_uname}}</a>
+                    </span>
+                    <span class="profiles_link linkedIn">
+                        <i class="uil uil-linkedin"></i> <a href="{{data.linkedIn}}">{{data.ln_uname}}</a>
+                    </span>
+                </div>
+            </div>
+            <div class="section summary_sec">
+                <h5 class="title_h5">Summary</h5>
+                <hr>
+                <div class="summary_div">
+                    <p class="summary">{{data.about}}</p>
+                </div>
+            </div>
+            <div class="section education_sec">
+                <h5 class="title_h5">Education</h5>
+                <hr>
+                <div class="education_div">
+                    <div class="edu_name_year">
+                        <h4 class="eduName">{{data.eduName1}}</h4>
+                        <h4 class="eduYear">{{data.eduYear1}}</h4>
+                    </div>
+                    <div class="edu_loc_type">
+                        <h4 class="eduLoc">{{data.eduLoc1}} <span>•</span> {{data.eduGPA1}}</h4>
+                        <h4 class="eduType">{{data.eduType1}}</h4>
+                    </div>
+                    <div class="edu_name_year edu_margin_top_class">
+                        <h4 class="eduName">{{data.eduName2}}</h4>
+                        <h4 class="eduYear">{{data.eduYear2}}</h4>
+                    </div>
+                    <div class="edu_loc_type">
+                        <h4 class="eduLoc">{{data.eduLoc2}} <span>•</span> {{data.eduGPA2}}</h4>
+                        <h4 class="eduType">{{data.eduType2}}</h4>
+                    </div>
+                    <div class="edu_name_year edu_margin_top_class">
+                        <h4 class="eduName">{{data.eduName3}}</h4>
+                        <h4 class="eduYear">{{eduYear3}}</h4>
+                    </div>
+                    <div class="edu_loc_type">
+                        <h4 class="eduLoc">{{data.eduLoc3}} <span>•</span> {{data.eduGPA3}}</h4>
+                        <h4 class="eduType">{{data.eduType3}}</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="section skills_sec">
+                <h5 class="title_h5">Skills</h5>
+                <hr>
+                <div class="skill_set_div1">
+                    <div class="skill_name_desc">
+                        <div class="skill_name">{{data.skill1}}</div>
+                        <div class="skill_desc">{{data.skillDesc1}}</div>
+                    </div>
+                    <div class="skill_name_desc">
+                        <div class="skill_name">{{data.skill2}}</div>
+                        <div class="skill_desc">{{data.skillDesc2}}</div>
+                    </div>
+                    <div class="skill_name_desc">
+                        <div class="skill_name">{{data.skill3}}</div>
+                        <div class="skill_desc">{{data.skillDesc3}}</div>
+                    </div>
+                    <div class="skill_name_desc">
+                        <div class="skill_name">{{data.skill4}}</div>
+                        <div class="skill_desc">{{data.skillDesc4}}</div>
+                    </div>
+                    <div class="skill_name_desc">
+                        <div class="skill_name">{{data.skill5}}</div>
+                        <div class="skill_desc">{{data.skillDesc5}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="section projects_sec">
+                <h5 class="title_h5">Projects</h5>
+                <hr>
+                <div class="proj_name_date">
+                    <h4 class="project">{{data.project1}}</h4>
+                    <h4 class="projectDate">{{data.projectDate1}}</h4>
+                </div>
+                <a href="{{data.projectLink1}}" class="projectLink"><i class="uil uil-link-h"></i> View Project</a>
+                <div class="projectDesc">
+                    <p class="bulletpoint"><span>•</span> {{data.project1Desc1}}</p>
+                    <p class="bulletpoint"><span>•</span> {{data.project1Desc2}}</p>
+                </div>
+                <div class="proj_name_date proj_margin_top_class">
+                    <h4 class="project">{{data.project2}}</h4>
+                    <h4 class="projectDate">{{data.projectDate2}}</h4>
+                </div>
+                <a href="{{data.projectLink2}}" class="projectLink"><i class="uil uil-link-h"></i> View Project</a>
+                <div class="projectDesc">
+                    <p class="bulletpoint"><span>•</span> {{data.project2Desc1}}</p>
+                    <p class="bulletpoint"><span>•</span> {{data.project2Desc2}}</p>
+                </div>
+            </div>
+            <div class="section certificate_sec">
+                <h5 class="title_h5">Certifications</h5>
+                <hr>
+                <div class="certificates">
+                    <div class="cert_div">
+                        <div class="cert_name_issuer">
+                            <a href="{{data.certLink1}}" class="certName">{{data.certName1}}</a>
+                            <h4 class="certIssuer">{{data.certIssuer1}}</h4>
+                        </div>
+                        <h4 class="certYear">{{data.certYear1}}</h4>
+                    </div>
+                    <div class="cert_div">
+                        <div class="cert_name_issuer">
+                            <a href="{{data.certLink2}}" class="certName">{{data.certName2}}</a>
+                            <h4 class="certIssuer">{{data.certIssuer2}}</h4>
+                        </div>
+                        <h4 class="certYear">{{data.certYear2}}</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="section lang_sec">
+                <h5 class="title_h5">Languages</h5>
+                <hr>
+                <div class="languages">
+                    <div class="lang_name_desc">
+                        <h4 class="lang">{{data.lang1}}</h4>
+                        <h4 class="langDesc">{{data.langDesc1}}</h4>
+                    </div>
+                    <div class="lang_name_desc">
+                        <h4 class="lang">{{data.lang2}}</h4>
+                        <h4 class="langDesc">{{data.langDesc2}}</h4>
+                    </div>
+                    <div class="lang_name_desc">
+                        <h4 class="lang">{{data.lang3}}</h4>
+                        <h4 class="langDesc">{{data.langDesc3}}</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="section interests_sec">
+                <h5 class="title_h5">Interests</h5>
+                <hr>
+                <div class="interests_div">
+                    <h4 class="interests">{{data.interests1}}</h4>
+                    <h4 class="interests">{{data.interests2}}</h4>
+                    <h4 class="interests">{{data.interests3}}</h4>
+                    <h4 class="interests">{{data.interests4}}</h4>
+                    <h4 class="interests">{{data.interests5}}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+
+</html>

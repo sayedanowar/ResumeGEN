@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="shortcut icon" href="/static/favicon/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/static/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/static/favicon/manifest.json">
+    <meta name="keywords" content="ResumeGEN">
+    <meta name="description"
+        content="A free and open-source resume builder that simplifies the process of creating and updating your resume.">
+    <meta name="theme-color" content="#131214">
+    <title>Dashboard - ResumeGEN</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="/" class="logo">ResumeGEN</a>
+        <span class="navbar_toggle" id="js-navbar-toggle">
+            <i class="uil uil-apps"></i>
+        </span>
+        <ul class="nav_links_div" id="js-menu">
+            {% if request.user.is_authenticated %}
+            <li><a href="{% url 'dashboard' %}" class="nav_links active">Dashboard</a></li>
+            <li><a href="{% url 'preview' %}" class="nav_links">Preview</a></li>
+            <li><a href="{% url 'logout' %}" class="nav_links">Log Out</a></li>
+            {% else %}
+            <li><a href="/" class="nav_links">Home</a></li>
+            <li><a href="{% url 'login' %}" class="nav_links">Log In</a></li>
+            <li><a href="{% url 'signup' %}" class="nav_links">Sign Up</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <div class="dashboard_container">
+        <form action="" method="post">
+            {% csrf_token %}
+            <!-- Basic Section -->
+            <h1 class="sec_title">Basic</h1>
+            <div class="form_group">
+                <label class="input_label">Full Name</label>
+                <input type="text" name="fullname" class="input_field" placeholder="Full Name" value="{{data.fullname}}"
+                    required>
+            </div>
+            <div class="form_group">
+                <label class="input_label">Job Title</label>
+                <input type="text" name="jobTitle" class="input_field" placeholder="Job Title" value="{{data.jobTitle}}"
+                    required>
+            </div>
+            <div class="input_group_div">
+                <div class="form_group flex_input">
+                    <label class="input_label">Email</label>
+                    <input type="email" name="email" class="input_field" placeholder="john.doe@example.com"
+                        value="{{data.email}}" required>
+                </div>
+                <div class="form_group flex_input">
+                    <label class="input_label">Phone</label>
+                    <input type="tel" name="ph" class="input_field" placeholder="+1 (123) 4567 890" value="{{data.ph}}"
+                        required>
+                </div>
+            </div>
+            <div class="input_group_div">
+                <div class="form_group flex_input">
+                    <label class="input_label">Location</label>
+                    <input type="text" name="location" class="input_field" placeholder="Kolkata, WB"
+                        value="{{data.location}}" required>
+                </div>
+                <div class="form_group flex_input">
+                    <label class="input_label">Website</label>
+                    <input type="text" name="portfolio" class="input_field" placeholder="https://example.com"
+                        value="{{data.portfolio}}" required>
+                </div>
+            </div>
+            <div class="form_group">
+                <label class="input_label">Website Label</label>
+                <input type="text" name="siteLabel" class="input_field" placeholder="example.com"
+                    value="{{data.siteLabel}}" required>
+            </div>
+            <!-- Profile Section -->
+            <h1 class="sec_title">Profile</h1>
+            <div class="form_group">
+                <label class="input_label">Facebook</label>
+                <input type="text" name="fb_uname" class="input_field" placeholder="Username" value="{{data.fb_uname}}"
+                    required>
+            </div>
+            <div class="form_group">
+                <input type="text" name="facebook" class="input_field" placeholder="Link" value="{{data.facebook}}"
+                    required>
+            </div>
+            <div class="form_group">
+                <label class="input_label">Instagram</label>
+                <input type="text" name="ig_uname" class="input_field" placeholder="Username" value="{{data.ig_uname}}"
+                    required>
+            </div>
+            <div class="form_group">
+                <input type="text" name="instagram" class="input_field" placeholder="Link" value="{{data.instagram}}"
+                    required>
+            </div>
+            <div class="form_group">
+                <label class="input_label">Twitter</label>
+                <input type="text" name="tw_uname" class="input_field" placeholder="Username" value="{{data.tw_uname}}"
+                    required>
+            </div>
+            <div class="form_group">
+                <input type="text" name="twitter" class="input_field" placeholder="Link" value="{{data.twitter}}"
+                    required>
+            </div>
+            <div class="form_group">
+                <label class="input_label">GitHub</label>
+                <input type="text" name="gh_uname" class="input_field" placeholder="Username" value="{{data.gh_uname}}"
+                    required>
+            </div>
+            <div class="form_group">
+                <input type="text" name="gitHub" class="input_field" placeholder="Link" value="{{data.gitHub}}"
+                    required>
+            </div>
+            <div class="form_group">
+                <label class="input_label">LinkedIn</label>
+                <input type="text" name="ln_uname" class="input_field" placeholder="Username" value="{{data.ln_uname}}"
+                    required>
+            </div>
+            <div class="form_group">
+                <input type="text" name="linkedIn" class="input_field" placeholder="Link" value="{{data.linkedIn}}"
+                    required>
+            </div>
+            <!-- Summary Section -->
+            <h1 class="sec_title">Summary</h1>
+            <div class="form_group">
+                <label class="input_label">About</label>
+                <textarea name="about" rows="5" class="input_field" maxlength="200" required>{{data.about}}</textarea>
+            </div>
+            <!-- Education Section -->
+            <h1 class="sec_title">Secondary Education</h1>
+            <div class="form_group">
+                <label class="input_label">Institution</label>
+                <input type="text" name="eduName1" class="input_field" value="{{data.eduName1}}" required>
+            </div>
+            <div class="form_group">
+                <label class="input_label">Type of Study</label>
+                <input type="text" name="eduType1" class="input_field" value="{{data.eduType1}}" required>
+            </div>
+            <div class="form_group">
+                <label class="input_label">Date Range</label>
+                <input type="text" name="eduYear1" class="input_field" placeholder="May 2020 - Present"
+                    value="{{data.eduYear1}}" required>
+            </div>
+            <div class="input_group_div">
+                <div class="form_group flex_input">
+                    <label class="input_label">Area of Study</label>
+                    <input type="text" name="eduLoc1" class="input_field" value="{{data.eduLoc1}}" required>
+                </div>
+                <div class="form_group flex_input">
+                    <label class="input_label">Score</label>
+                    <input type="text" name="eduGPA1" class="input_field" placeholder="9.2 GPA"
+                        value="{{data.eduGPA1}}">
+                </div>
+            </div>
+            <h1 class="sec_title">Higher Secondary Education</h1>
+            <div class="form_group">
+                <label class="input_label">Institution</label>
+                <input type="text" name="eduName2" class="input_field" value="{{data.eduName2}}" required>
+            </div>
+            <div class="form_group">
+                <label class="input_label">Type of Study</label>
+                <input type="text" name="eduType2" class="input_field" value="{{data.eduType2}}" required>
+            </div>
+            <div class="form_group">
+                <label class="input_label">Date Range</label>
+                <input type="text" name="eduYear2" class="input_field" placeholder="May 2020 - Present"
+                    value="{{data.eduYear2}}" required>
+            </div>
+            <div class="input_group_div">
+                <div class="form_group flex_input">
+                    <label class="input_label">Area of Study</label>
+                    <input type="text" name="eduLoc2" class="input_field" value="{{data.eduLoc2}}" required>
+                </div>
+                <div class="form_group flex_input">
+                    <label class="input_label">Score</label>
+                    <input type="text" name="eduGPA2" class="input_field" placeholder="9.2 GPA"
+                        value="{{data.eduGPA2}}">
+                </div>
+            </div>
+            <h1 class="sec_title">Higher Education</h1>
+            <div class="form_group">
+                <label class="input_label">Institution</label>
+                <input type="text" name="eduName3" class="input_field" value="{{data.eduName3}}" required>
+            </div>
+            <div class="form_group">
+                <label class="input_label">Type of Study</label>
+                <input type="text" name="eduType3" class="input_field" value="{{data.eduType3}}" required>
+            </div>
+            <div class="form_group">
+                <label class="input_label">Date Range</label>
+                <input type="text" name="eduYear3" class="input_field" placeholder="May 2020 - Present"
+                    value="{{data.eduYear3}}" required>
+            </div>
+            <div class="input_group_div">
+                <div class="form_group flex_input">
+                    <label class="input_label">Area of Study</label>
+                    <input type="text" name="eduLoc3" class="input_field" value="{{data.eduLoc3}}" required>
+                </div>
+                <div class="form_group flex_input">
+                    <label class="input_label">Score</label>
+                    <input type="text" name="eduGPA3" class="input_field" placeholder="9.2 GPA"
+                        value="{{data.eduGPA3}}">
+                </div>
+            </div>
+            <!-- Skills Section -->
+            <h1 class="sec_title">Skills</h1>
+            <div class="input_group_div">
+                <div class="form_group flex_input">
+                    <label class="input_label">Name</label>
+                    <input type="text" name="skill1" class="input_field" value="{{data.skill1}}" placeholder="HTML"
+                        required>
+                </div>
+                <div class="form_group flex_input">
+                    <label class="input_label">Description</label>
+                    <input type="text" name="skillDesc1" class="input_field" value="{{data.skillDesc1}}"
+                        placeholder="Expert" required>
+                </div>
+            </div>
+            <div class="input_group_div">
+                <div class="form_group flex_input">
+                    <label class="input_label">Name</label>
+                    <input type="text" name="skill2" class="input_field" value="{{data.skill2}}" placeholder="CSS"
+                        required>
+                </div>
+                <div class="form_group flex_input">
+                    <label class="input_label">Description</label>
+                    <input type="text" name="skillDesc2" class="input_field" value="{{data.skillDesc2}}"
+                        placeholder="Experienced" required>
+                </div>
+            </div>
+            <div class="input_group_div">
+                <div class="form_group flex_input">
+                    <label class="input_label">Name</label>
+                    <input type="text" name="skill3" class="input_field" value="{{data.skill3}}"
+                        placeholder="JavaScript" required>
+                </div>
+                <div class="form_group flex_input">
+                    <label class="input_label">Description</label>
+                    <input type="text" name="skillDesc3" class="input_field" value="{{data.skillDesc3}}"
+                        placeholder="Skillful" required>
+                </div>
+            </div>
+            <div class="input_group_div">
+                <div class="form_group flex_input">
+                    <label class="input_label">Name</label>
+                    <input type="text" name="skill4" class="input_field" value="{{data.skill4}}" placeholder="Python"
+                        required>
+                </div>
+                <div class="form_group flex_input">
+                    <label class="input_label">Description</label>
+                    <input type="text" name="skillDesc4" class="input_field" value="{{data.skillDesc4}}"
+                        placeholder="Beginner" required>
+                </div>
+            </div>
+            <div class="input_group_div">
+                <div class="form_group flex_input">
+                    <label class="input_label">Name</label>
+                    <input type="text" name="skill5" class="input_field" value="{{data.skill5}}" placeholder="C++"
+                        required>
+                </div>
+                <div class="form_group flex_input">
+                    <label class="input_label">Description</label>
+                    <input type="text" name="skillDesc5" class="input_field" value="{{data.skillDesc5}}"
+                        placeholder="Novice" required>
+                </div>
+            </div>
+            <!-- Projects Section -->
+            <h1 class="sec_title">Project 1</h1>
+            <div class="form_group">
+                <label class="input_label">Name</label>
+                <input type="text" name="project1" class="input_field" value="{{data.project1}}" required>
+            </div>
+            <div class="input_group_div">
+                <div class="form_group flex_input">
+                    <label class="input_label">Link</label>
+                    <input type="text" name="projectLink1" class="input_field" value="{{data.projectLink1}}"
+                        placeholder="https://example.com" required>
+                </div>
+                <div class="form_group flex_input">
+                    <label class="input_label">Date Range</label>
+                    <input type="text" name="projectDate1" class="input_field" value="{{data.projectDate1}}"
+                        placeholder="May 2020 - Present" required>
+                </div>
+            </div>
+            <div class="form_group">
+                <label class="input_label">Description</label>
+                <input type="text" name="project1Desc1" placeholder="• Description" class="input_field"
+                    value="{{data.project1Desc1}}" required>
+            </div>
+            <div class="form_group">
+                <input type="text" name="project1Desc2" placeholder="• Description" class="input_field"
+                    value="{{data.project1Desc2}}" required>
+            </div>
+            <h1 class="sec_title">Project 2</h1>
+            <div class="form_group">
+                <label class="input_label">Name</label>
+                <input type="text" name="project2" class="input_field" value="{{data.project2}}" required>
+            </div>
+            <div class="input_group_div">
+                <div class="form_group flex_input">
+                    <label class="input_label">Link</label>
+                    <input type="text" name="projectLink2" class="input_field" value="{{data.projectLink2}}"
+                        placeholder="https://example.com" required>
+                </div>
+                <div class="form_group flex_input">
+                    <label class="input_label">Date Range</label>
+                    <input type="text" name="projectDate2" class="input_field" value="{{data.projectDate2}}"
+                        placeholder="May 2020 - Present" required>
+                </div>
+            </div>
+            <div class="form_group">
+                <label class="input_label">Description</label>
+                <input type="text" name="project2Desc1" placeholder="• Description" class="input_field"
+                    value="{{data.project2Desc1}}" required>
+            </div>
+            <div class="form_group">
+                <input type="text" name="project2Desc2" placeholder="• Description" class="input_field"
+                    value="{{data.project2Desc2}}" required>
+            </div>
+            <!-- Certificate Section -->
+            <h1 class="sec_title">Certificate 1</h1>
+            <div class="form_group">
+                <label class="input_label">Name</label>
+                <input type="text" name="certName1" class="input_field" value="{{data.certName1}}" required>
+            </div>
+            <div class="form_group">
+                <label class="input_label">Issuer</label>
+                <input type="text" name="certIssuer1" class="input_field" value="{{data.certIssuer1}}" required>
+            </div>
+            <div class="input_group_div">
+                <div class="form_group flex_input">
+                    <label class="input_label">Link</label>
+                    <input type="text" name="certLink1" class="input_field" value="{{data.certLink1}}"
+                        placeholder="https://udemy.com/certificate" required>
+                </div>
+                <div class="form_group flex_input">
+                    <label class="input_label">Date</label>
+                    <input type="text" name="certYear1" class="input_field" value="{{data.certYear1}}"
+                        placeholder="May 2020" required>
+                </div>
+            </div>
+            <h1 class="sec_title">Certificate 2</h1>
+            <div class="form_group">
+                <label class="input_label">Name</label>
+                <input type="text" name="certName2" class="input_field" value="{{data.certName2}}" required>
+            </div>
+            <div class="form_group">
+                <label class="input_label">Issuer</label>
+                <input type="text" name="certIssuer2" class="input_field" value="{{data.certIssuer2}}" required>
+            </div>
+            <div class="input_group_div">
+                <div class="form_group flex_input">
+                    <label class="input_label">Link</label>
+                    <input type="text" name="certLink2" class="input_field" value="{{data.certLink2}}"
+                        placeholder="https://udemy.com/certificate" required>
+                </div>
+                <div class="form_group flex_input">
+                    <label class="input_label">Date</label>
+                    <input type="text" name="certYear2" class="input_field" value="{{data.certYear2}}"
+                        placeholder="May 2020" required>
+                </div>
+            </div>
+            <!-- Languages Section -->
+            <h1 class="sec_title">Languages</h1>
+            <div class="input_group_div">
+                <div class="form_group flex_input">
+                    <label class="input_label">Name</label>
+                    <input type="text" name="lang1" class="input_field" value="{{data.lang1}}" placeholder="English"
+                        required>
+                </div>
+                <div class="form_group flex_input">
+                    <label class="input_label">Description</label>
+                    <input type="text" name="langDesc1" class="input_field" value="{{data.langDesc1}}"
+                        placeholder="Native Speaker" required>
+                </div>
+            </div>
+            <div class="input_group_div">
+                <div class="form_group flex_input">
+                    <label class="input_label">Name</label>
+                    <input type="text" name="lang2" class="input_field" value="{{data.lang2}}" placeholder="Hindi"
+                        required>
+                </div>
+                <div class="form_group flex_input">
+                    <label class="input_label">Description</label>
+                    <input type="text" name="langDesc2" class="input_field" value="{{data.langDesc2}}"
+                        placeholder="Highly Proficient" required>
+                </div>
+            </div>
+            <div class="input_group_div">
+                <div class="form_group flex_input">
+                    <label class="input_label">Name</label>
+                    <input type="text" name="lang3" class="input_field" value="{{data.lang3}}" placeholder="Bengali"
+                        required>
+                </div>
+                <div class="form_group flex_input">
+                    <label class="input_label">Description</label>
+                    <input type="text" name="langDesc3" class="input_field" value="{{data.langDesc3}}"
+                        placeholder="Very Good Command" required>
+                </div>
+            </div>
+            <!-- Interests Section -->
+            <h1 class="sec_title">Interests</h1>
+            <div class="form_group">
+                <label class="input_label">Name</label>
+                <input type="text" name="interests1" class="input_field" value="{{data.interests1}}" required>
+            </div>
+            <div class="form_group">
+                <label class="input_label">Name</label>
+                <input type="text" name="interests2" class="input_field" value="{{data.interests2}}" required>
+            </div>
+            <div class="form_group">
+                <label class="input_label">Name</label>
+                <input type="text" name="interests3" class="input_field" value="{{data.interests3}}" required>
+            </div>
+            <div class="form_group">
+                <label class="input_label">Name</label>
+                <input type="text" name="interests4" class="input_field" value="{{data.interests4}}" required>
+            </div>
+            <div class="form_group">
+                <label class="input_label">Name</label>
+                <input type="text" name="interests5" class="input_field last_input" value="{{data.interests5}}"
+                    required>
+            </div>
+            <button type="submit" class="btn dash_save_btn" value="Save">Save</button>
+        </form>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+
+</html>

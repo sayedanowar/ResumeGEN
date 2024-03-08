@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="shortcut icon" href="/static/favicon/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/static/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/static/favicon/manifest.json">
+    <meta name="keywords" content="ResumeGEN">
+    <meta name="description"
+        content="A free and open-source resume builder that simplifies the process of creating and updating your resume.">
+    <meta name="theme-color" content="#131214">
+    <meta property="og:url" content="https://resumegen-v1.vercel.app/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ResumeGEN">
+    <meta property="og:description"
+        content="A free and open-source resume builder that simplifies the process of creating and updating your resume.">
+    <meta property="og:image" content="https://resumegen-v1.vercel.app/static/og-img.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="resumegen-v1.vercel.app">
+    <meta property="twitter:url" content="https://resumegen-v1.vercel.app/">
+    <meta name="twitter:title" content="ResumeGEN">
+    <meta name="twitter:description"
+        content="A free and open-source resume builder that simplifies the process of creating and updating your resume.">
+    <meta name="twitter:image" content="https://resumegen-v1.vercel.app/static/og-img.png">
+    <title>ResumeGEN</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="/" class="logo">ResumeGEN</a>
+        <span class="navbar_toggle" id="js-navbar-toggle">
+            <i class="uil uil-apps"></i>
+        </span>
+        <ul class="nav_links_div" id="js-menu">
+            {% if request.user.is_authenticated %}
+            <li><a href="{% url 'dashboard' %}" class="nav_links">Dashboard</a></li>
+            <li><a href="{% url 'preview' %}" class="nav_links">Preview</a></li>
+            <li><a href="{% url 'logout' %}" class="nav_links">Log Out</a></li>
+            {% else %}
+            <li><a href="/" class="nav_links active">Home</a></li>
+            <li><a href="{% url 'login' %}" class="nav_links">Log In</a></li>
+            <li><a href="{% url 'signup' %}" class="nav_links">Sign Up</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <div class="home_container">
+        <div class="text_div">
+            <h4 class="home_tag">Finally,</h4>
+            <h2 class="home_text">A free and open-source resume builder</h2>
+            <p class="home_para">A free and open-source resume builder that simplifies the process of creating, and
+                updating your resume.
+            </p>
+            <div class="home_links">
+                <a href="{% url 'login' %}" class="get_started">Get Started</a>
+                <a href="#" class="source_code"><i class="uil uil-code-branch"></i> Source Code</a>
+            </div>
+        </div>
+        <div class="image_div">
+            <img src="/static/img.png" alt="Placeholder Image">
+        </div>
+    </div>
+    <div class="features_div">
+        <div class="f_title_tagline">
+            <h4 class="features_title">Rich in features, not in pricing.</h4>
+            <p class="features_tagline">
+                ResumeGEN is a passion project resulting from over a month of hard work, and with that comes a number of
+                re-iterated ideas and features that have been built to (near) perfection.
+            </p>
+        </div>
+        <div class="features_box">
+            <div class="f_box">
+                <i class="uil uil-dollar-sign"></i>
+                <p class="f_text">Free Forever</p>
+            </div>
+            <div class="f_box">
+                <i class="uil uil-code-branch"></i>
+                <p class="f_text">Open Source</p>
+            </div>
+            <div class="f_box">
+                <i class="uil uil-ban"></i>
+                <p class="f_text">No user tracking</p>
+            </div>
+            <div class="f_box">
+                <i class="uil uil-file"></i>
+                <p class="f_text">A4 page format</p>
+            </div>
+            <div class="f_box">
+                <i class="uil uil-html5-alt"></i>
+                <i class="uil uil-css3-simple"></i>
+                <i class="uil uil-java-script"></i>
+                <p class="f_text">dj</p>
+            </div>
+        </div>
+    </div>
+    <p class="copyright">Design And Developed By <a href="#">Sayed Anowar</a></p>
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
