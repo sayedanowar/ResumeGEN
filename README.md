@@ -1,3 +1,5 @@
+![ResumeGEN](https://raw.githubusercontent.com/sayedanowar/ResumeGEN/main/img/GitHub%20Repository%20Image.png)
+
 # Django Resume Generator
 
 This is a Django project for creating and managing resumes. Users can sign up, fill in their details, and generate a professional resume in PDF format.
@@ -106,8 +108,6 @@ Contributions are always welcome! Feel free to open an issue, fork the repositor
 
 ### Desktop View
 
-![App Screenshot](https://github.com/sayedanowar/ResumeGEN/blob/main/img/s1.png)
-
 ![App Screenshot](https://github.com/sayedanowar/ResumeGEN/blob/main/img/s2.png)
 
 ![App Screenshot](https://github.com/sayedanowar/ResumeGEN/blob/main/img/s3.png)
@@ -117,8 +117,6 @@ Contributions are always welcome! Feel free to open an issue, fork the repositor
 ![App Screenshot](https://github.com/sayedanowar/ResumeGEN/blob/main/img/s5.png)
 
 ### Mobile View
-
-![App Screenshot](https://github.com/sayedanowar/ResumeGEN/blob/main/img/s6.png)
 
 ![App Screenshot](https://github.com/sayedanowar/ResumeGEN/blob/main/img/s7.png)
 
