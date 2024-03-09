@@ -115,13 +115,3 @@ Contributions are always welcome! Feel free to open an issue, fork the repositor
 ![App Screenshot](https://github.com/sayedanowar/ResumeGEN/blob/main/img/s4.png)
 
 ![App Screenshot](https://github.com/sayedanowar/ResumeGEN/blob/main/img/s5.png)
-
-### Mobile View
-
-![App Screenshot](https://github.com/sayedanowar/ResumeGEN/blob/main/img/s7.png)
-
-![App Screenshot](https://github.com/sayedanowar/ResumeGEN/blob/main/img/s8.png)
-
-![App Screenshot](https://github.com/sayedanowar/ResumeGEN/blob/main/img/s9.png)
-
-![App Screenshot](https://github.com/sayedanowar/ResumeGEN/blob/main/img/s10.png)
