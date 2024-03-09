@@ -313,7 +313,7 @@ textarea {
 }
 
 .delete:hover {
-    background-color: #FF001E;
+    background-color: #FF001E !important;
 }
 
 .form_container .github_login {
