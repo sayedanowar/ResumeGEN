@@ -3,6 +3,10 @@ from django.contrib.auth import authenticate, login, logout
 from django.http.response import HttpResponseRedirect
 from app.models import ResumeForm
 from app.forms import LoginForm, SignupForm
+from django.contrib.messages.views import SuccessMessageMixin
+from django.views import generic
+from django.contrib.auth.models import User
+from django.urls import reverse_lazy
 
 # Create your views here.
 
@@ -221,6 +225,11 @@ def dashboard(request):
         return render(request, 'dashboard.html', {'data': data})
     else:
         return HttpResponseRedirect('/login/')
+
+class deleteUser(SuccessMessageMixin, generic.DeleteView):
+    model = User
+    template_name = 'deleteUser.html'
+    success_url = reverse_lazy('home')
     
 def error404(request, exception):
     return render(request, '404.html', status=404)

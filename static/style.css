@@ -55,6 +55,7 @@ textarea {
     color: #FFFFFF;
     padding: 0 1rem;
     transition: .3s;
+    text-transform: capitalize;
 }
 
 .nav_links:hover {
@@ -213,7 +214,7 @@ textarea {
 
 .form_logo {
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.75rem;
     margin-bottom: 3rem;
 }
 
@@ -304,6 +305,15 @@ textarea {
 .btn:hover {
     color: #FFFFFF;
     background-color: #1D1C1F;
+}
+
+.delete {
+    color: #FFFFFF !important;
+    background-color: #ED213A !important;
+}
+
+.delete:hover {
+    background-color: #FF001E;
 }
 
 .form_container .github_login {
