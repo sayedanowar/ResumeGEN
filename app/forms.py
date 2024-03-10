@@ -1,4 +1,4 @@
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UsernameField
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UsernameField, UserChangeForm
 from django.contrib.auth.models import User
 from django import forms
 
@@ -19,3 +19,13 @@ class SignupForm(UserCreationForm):
 class LoginForm(AuthenticationForm):
     username = UsernameField(label='', widget=forms.TextInput(attrs={'autofocus':True, 'class':'form-control', 'placeholder':'Username'}))
     password = forms.CharField(label='', widget=forms.PasswordInput(attrs={'class':'form-control', 'placeholder': 'Password'}))
+
+class UpdateUserForm(UserChangeForm):
+    username = UsernameField(label='', widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Username'}))
+    email = forms.EmailField(label='', widget=forms.EmailInput(attrs={'class':'form-control', 'placeholder':'Email'}))
+    first_name = forms.CharField(label='', max_length=100, widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'First Name'}))
+    last_name = forms.CharField(label='', max_length=100, widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Last Name'}))
+
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'username', 'email')

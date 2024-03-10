@@ -30,6 +30,7 @@
             <li><a href="#" class="nav_links">Hi, {{user.username}}</a></li>
             <li><a href="{% url 'dashboard' %}" class="nav_links">Dashboard</a></li>
             <li><a href="{% url 'preview' %}" class="nav_links active">Preview</a></li>
+            <li><a href="{% url 'profile' %}" class="nav_links">Profile</a></li>
             <li><a href="{% url 'delete' user.id %}" class="nav_links">Delete Account</a></li>
             <li><a href="{% url 'logout' %}" class="nav_links">Log Out</a></li>
             {% else %}

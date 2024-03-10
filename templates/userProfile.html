@@ -13,7 +13,7 @@
     <meta name="description"
         content="A free and open-source resume builder that simplifies the process of creating and updating your resume.">
     <meta name="theme-color" content="#131214">
-    <title>Sign Up - ResumeGEN</title>
+    <title>Profile - ResumeGEN</title>
 </head>
 
 <body>
@@ -27,45 +27,27 @@
             <li><a href="#" class="nav_links">Hi, {{user.username}}</a></li>
             <li><a href="{% url 'dashboard' %}" class="nav_links">Dashboard</a></li>
             <li><a href="{% url 'preview' %}" class="nav_links">Preview</a></li>
-            <li><a href="{% url 'profile' %}" class="nav_links">Profile</a></li>
+            <li><a href="{% url 'profile' %}" class="nav_links active">Profile</a></li>
             <li><a href="{% url 'delete' user.id %}" class="nav_links">Delete Account</a></li>
             <li><a href="{% url 'logout' %}" class="nav_links">Log Out</a></li>
             {% else %}
             <li><a href="/" class="nav_links">Home</a></li>
             <li><a href="{% url 'login' %}" class="nav_links">Log In</a></li>
-            <li><a href="{% url 'signup' %}" class="nav_links active">Sign Up</a></li>
+            <li><a href="{% url 'signup' %}" class="nav_links">Sign Up</a></li>
             {% endif %}
         </ul>
     </nav>
     <div class="form_container">
-        <h2 class="form_logo">Sign Up</h2>
-        <form action="" method="post" novalidate>
+        <h2 class="form_logo">My Profile</h2>
+        <form action="{% url 'profile' %}" method="post">
             {% csrf_token %}
-            {% for fm in form %}
-            <div class="input_group">
-                {{fm}}
-                <small class="small">{{fm.errors|striptags}}</small>
+            <div class="update_form">
+                {{form.as_p}}
             </div>
-            {% endfor %}
-            <div class="show_password_div">
-                <button class="show_passwd_btn" id="showPsswd" type="button">
-                    <i class="uil uil-eye eye_icons"></i>
-                </button>
-                <label>Show Password</label>
-            </div>
-            <button type="submit" class="btn" value="Sign Up">Sign Up</button>
-            <div class="github_login">
-                <a href="{% url 'social:begin' 'github' %}"><i class="uil uil-github-alt"></i> Sign Up With GitHub</a>
-            </div>
-            {% if form.non_field_errors %}
-            {% for error in form.non_field_errors %}
-            <p class="alert_error">{{error}}</p>
-            {% endfor %}
-            {% endif %}
+            <button class="btn" type="submit">Update Profile</button>
         </form>
-        <p class="form_redirect">Have An Account ? <a href="{% url 'login' %}">Log In</a></p>
     </div>
-    <script src="/static/signUp.js"></script>
+    <script src="/static/script.js"></script>
 </body>
 
 </html>

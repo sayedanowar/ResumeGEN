@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.http.response import HttpResponseRedirect
 from app.models import ResumeForm
-from app.forms import LoginForm, SignupForm
+from app.forms import LoginForm, SignupForm, UpdateUserForm
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views import generic
 from django.contrib.auth.models import User
@@ -48,6 +48,17 @@ def userLogOut(request):
     if request.user.is_authenticated:
         logout(request)
         return HttpResponseRedirect('/')
+    else:
+        return HttpResponseRedirect('/login/')
+
+def userProfile(request):
+    if request.user.is_authenticated:
+        current_user = User.objects.get(id=request.user.id)
+        fm = UpdateUserForm(request.POST or None, instance=current_user)
+        if fm.is_valid():
+            fm.save()
+            return HttpResponseRedirect('/dashboard/')
+        return render(request, 'userProfile.html', {'form': fm})
     else:
         return HttpResponseRedirect('/login/')
 

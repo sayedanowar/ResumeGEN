@@ -244,6 +244,40 @@ textarea {
     line-height: 1.5rem;
 }
 
+.update_form {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: #1D1C1F;
+    margin-bottom: 1.25rem;
+    border-radius: 0.5rem;
+}
+
+.update_form input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: #1D1C1F;
+    color: #FFFFFF;
+}
+
+.update_form label,
+.update_form #id_password_helptext,
+.update_form strong {
+    display: none;
+}
+
+.update_form .errorlist {
+    color: #FF6969;
+}
+
+.form_container #id_password_helptext {
+    display: none;
+}
+
 .password_reset {
     display: flex;
     flex-direction: column;
