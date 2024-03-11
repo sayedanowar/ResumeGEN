@@ -88,6 +88,7 @@ This is a Django project for creating and managing resumes. Users can sign up, f
 - Log In / Sign Up With GitHub
 - Responsive Design
 - Forgot Password Feature
+- User Profile Update Feature
 
 ## Tech Stack
 
@@ -115,3 +116,7 @@ Contributions are always welcome! Feel free to open an issue, fork the repositor
 ![App Screenshot](https://github.com/sayedanowar/ResumeGEN/blob/main/img/s4.png)
 
 ![App Screenshot](https://github.com/sayedanowar/ResumeGEN/blob/main/img/s5.png)
+
+![App Screenshot](https://github.com/sayedanowar/ResumeGEN/blob/main/img/s1.png)
+
+![App Screenshot](https://github.com/sayedanowar/ResumeGEN/blob/main/img/s6.png)
