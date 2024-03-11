@@ -48,6 +48,17 @@
         </form>
     </div>
     <script src="/static/script.js"></script>
+    <script>
+        const emailField = document.getElementById("id_email");
+        function validateEmail() {
+            if (!emailField.value.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
+                emailField.style.color = '#FF6969';
+                return false;
+            }
+            emailField.style.color = '#FFFFFF'
+            return true;
+        }
+    </script>
 </body>
 
 </html>

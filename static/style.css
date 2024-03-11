@@ -274,6 +274,10 @@ textarea {
     color: #FF6969;
 }
 
+.update_form .helptext {
+    display: none;
+}
+
 .form_container #id_password_helptext {
     display: none;
 }

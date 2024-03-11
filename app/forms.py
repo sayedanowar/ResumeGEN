@@ -22,7 +22,7 @@ class LoginForm(AuthenticationForm):
 
 class UpdateUserForm(UserChangeForm):
     username = UsernameField(label='', widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Username'}))
-    email = forms.EmailField(label='', widget=forms.EmailInput(attrs={'class':'form-control', 'placeholder':'Email'}))
+    email = forms.EmailField(label='', widget=forms.EmailInput(attrs={'class':'form-control', 'placeholder':'Email', 'onkeyup':'validateEmail()'}))
     first_name = forms.CharField(label='', max_length=100, widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'First Name'}))
     last_name = forms.CharField(label='', max_length=100, widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Last Name'}))
 
