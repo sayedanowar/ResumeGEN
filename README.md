@@ -117,6 +117,6 @@ Contributions are always welcome! Feel free to open an issue, fork the repositor
 
 ![App Screenshot](https://github.com/sayedanowar/ResumeGEN/blob/main/img/s5.png)
 
-![App Screenshot](https://github.com/sayedanowar/ResumeGEN/blob/main/img/s1.png)
-
 ![App Screenshot](https://github.com/sayedanowar/ResumeGEN/blob/main/img/s6.png)
+
+![App Screenshot](https://github.com/sayedanowar/ResumeGEN/blob/main/img/s1.png)
